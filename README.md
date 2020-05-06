@@ -26,6 +26,19 @@ terraform apply -auto-approve
 ```
 Visit the ELB webpage
 ```
+cd chef
+terraform init
+knife environment list
+knife role list
+terraform apply -auto-approve -parallelism=1
+knife environment list
+knife role show ccrole
+knife data bag show example-data-bag example-item
+terraform destroy -auto-approve
+knife environment list
+knife role list
+```
+
 $ inspec terraform generate --tfstate terraform.tfstate --name chefconf-profile --title 'ChefConf Demo' --platform aws --resourcepath ../inspec-aws
 ```
 look at the profile
