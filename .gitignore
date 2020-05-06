@@ -1,0 +1,5 @@
+chef/.chef
+chef/*lock.json
+.terraform
+terraform.tfstate*
+terraform.tfvars

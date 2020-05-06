@@ -1,0 +1,3 @@
+# chefconf
+
+Simple demo cookbook
