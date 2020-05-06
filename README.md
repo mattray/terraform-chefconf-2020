@@ -17,7 +17,9 @@ ssh-add ~/.ssh/id_rsa
 okta_aws
 ```
 
-## Script
+## Scripts
+
+### Chef Provisioner Demo
 
 ```
 terraform --version
@@ -25,6 +27,9 @@ terraform init
 terraform apply -auto-approve
 ```
 Visit the ELB webpage
+
+
+### Chef Provider Demo
 ```
 cd chef
 terraform init
@@ -39,15 +44,25 @@ knife environment list
 knife role list
 ```
 
-$ inspec terraform generate --tfstate terraform.tfstate --name chefconf-profile --title 'ChefConf Demo' --platform aws --resourcepath ../inspec-aws
+### Inspec-Iggy Demo
+
+```
+okta_aws
+inspec version
+inspec iggy version
+inspec terraform generate --tfstate terraform.tfstate --name chefconf-profile --title 'ChefConf Demo' --platform aws --resourcepath ../inspec-aws
 ```
 look at the profile
+metadata.rb
+inspec.yml
+controls/*.rb
 ```
-$ inspec exec chefconf-profile -t aws://ap-southeast-2
-$ cat inspec.json
-$ inspec exec chefconf-profile -t aws://ap-southeast-2 --config inspec.json
+inspec exec chefconf-profile -t aws://ap-southeast-2
+cat inspec.json
+inspec exec chefconf-profile -t aws://ap-southeast-2 --config inspec.json
 ```
 look at Automate
 ```
-$ terraform destroy
+terraform destroy -auto-approve &
+inspec exec chefconf-profile -t aws://ap-southeast-2 --config inspec.json
 ```
